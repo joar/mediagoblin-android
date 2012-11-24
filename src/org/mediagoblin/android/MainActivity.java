@@ -33,6 +33,7 @@ import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
@@ -44,6 +45,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     private static final String TAG = "GMG:Main";
+    private static final int CREATE_ACCOUNT = 1;
     private AccountManager mAM;
     private Account mgAccount;
     private String token;
@@ -60,20 +62,36 @@ public class MainActivity extends Activity {
         Account[] accounts = mAM.getAccountsByType(Constants.ACCOUNT_TYPE);
         Log.d(TAG, accounts.toString());
 
-        if (accounts.length >= 1) {
+        if (accounts.length < 1) {
+            // launch the register Activity
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivityForResult(i, CREATE_ACCOUNT);
+        } else {
+            updateMainView();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CREATE_ACCOUNT) {
+            // we don't care if they made one, just wanted to give the opportunity
+            updateMainView();
+        }
+    }
+
+    private void updateMainView() {
+        Bundle options = new Bundle();
+        Account[] accounts = mAM.getAccountsByType(Constants.ACCOUNT_TYPE);
+
+        if (accounts.length > 0) {
             mgAccount = accounts[0];
         }
-        Bundle options = new Bundle();
 
         if (mgAccount != null) {
-            mAM.getAuthToken(
-                mgAccount,
-                Constants.AUTHTOKEN_TYPE,
-                options,
-                this,
-                new OnTokenAcquired(),
-                new Handler(new OnError())
-            );
+            mAM.getAuthToken(mgAccount, Constants.AUTHTOKEN_TYPE, options,
+                    this, new OnTokenAcquired(), new Handler(new OnError()));
         }
     }
 
