@@ -39,6 +39,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -205,7 +206,8 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         }
     }
 
-    public class RetrieveTokenTask extends AsyncTask<Void, Void, Boolean> {
+    private class RetrieveTokenTask extends AsyncTask<Void, Void, Boolean> {
+
 
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -234,6 +236,12 @@ public class LoginActivity extends AccountAuthenticatorActivity {
             showProgress(false);
 
             if (success) {
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, R.string.account_creation_success, duration);
+                toast.show();
+
                 finish();
             } else {
                 // TODO: Handle failure to get token
