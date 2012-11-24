@@ -1,9 +1,10 @@
 <resources>
 
     <!-- Strings related to login -->
-    <string name="prompt_server">Server</string>
+    <string name="prompt_server">https://example.com</string>
     <string name="action_sign_in_register"><b>Sign in</b> or register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="login_intro">MediaGoblin is a free software media publishing platform that anyone can run. To being registering your account, enter the server address.</string>
     <string name="menu_forgot_password">Recover lost password</string>
     <string name="login_progress_signing_in">Signing in&#8230;</string>
     <string name="error_invalid_email">This email address is invalid</string>

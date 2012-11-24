@@ -61,6 +61,12 @@
             style="@style/LoginFormContainer"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_intro" />
+
             <EditText
                 android:id="@+id/server"
                 android:layout_width="match_parent"
