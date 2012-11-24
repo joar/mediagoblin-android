@@ -31,7 +31,7 @@ import android.util.Log;
  */
 public class AuthenticationService extends Service {
 
-    private static final String TAG = "GMG:AuthenticationService";
+    private static final String TAG = "AuthService";
 
     private Authenticator mAuthenticator;
 
