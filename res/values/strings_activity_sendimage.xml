@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Strings related to media upload -->
+    <string name="enter_title">Title</string>
+    <string name="enter_description">Description</string>
+    <string name="upload">Upload</string>
+    <string name="upload_success">Successfully uploaded image to MediaGoblin</string>
+
+</resources>
