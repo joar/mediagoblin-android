@@ -2,9 +2,10 @@
 <resources>
 
     <string name="app_name">MediaGoblin</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="registered_account">Registered Account:</string>
+    <string name="none">None</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-
     <string name="account_type_label">MediaGoblin</string>
+
 </resources>
