@@ -47,8 +47,8 @@ import android.util.Log;
  */
 final public class NetworkUtilities {
 
-    private static final String PATH_OAUTH_ACCESS_TOKEN = "/oauth/access_token";
-    public static final String PATH_OAUTH_AUTHORIZE  = "/oauth/authorize";
+    private static final String PATH_OAUTH_ACCESS_TOKEN = "/oauth-2/access_token";
+    public static final String PATH_OAUTH_AUTHORIZE  = "/oauth-2/authorize";
 
     private static final String TAG = "GMG:NetworkUtilities";
 
